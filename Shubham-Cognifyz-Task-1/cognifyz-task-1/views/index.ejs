@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= owner %>'s Guestbook</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="intro">
+        <p class="eyebrow">Cognifyz · Full Stack Task 1</p>
+        <h1>Leave a little note.</h1>
+        <p class="lede">A small server-rendered guestbook made by <strong><%= owner %></strong>.</p>
+        <div class="mini-note">
+          <span class="dot"></span>
+          <span>Every message is rendered by the Express server.</span>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="form-heading">
+        <div class="card-heading">
+          <div>
+            <p class="section-label">Say hello</p>
+            <h2 id="form-heading">Your message</h2>
+          </div>
+          <span class="counter">01</span>
+        </div>
+
+        <% if (error) { %>
+          <div class="alert error" role="alert"><%= error %></div>
+        <% } %>
+
+        <% if (submitted) { %>
+          <div class="alert success" role="status">
+            Thanks, <%= formData.name %>. Your note was received on the server.
+          </div>
+        <% } %>
+
+        <form method="post" action="/submit">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name"
+            value="<%= formData.name || '' %>" autocomplete="name" />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com"
+            value="<%= formData.email || '' %>" autocomplete="email" />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Write something kind..."><%= formData.message || '' %></textarea>
+
+          <button type="submit">Send note <span aria-hidden="true">→</span></button>
+        </form>
+      </section>
+    </main>
+    <footer>Built with Express + EJS · Owner: <%= owner %></footer>
+  </body>
+</html>
