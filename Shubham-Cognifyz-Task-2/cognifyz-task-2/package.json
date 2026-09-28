@@ -1,0 +1,15 @@
+{
+  "name": "shubhams-feedback-desk-task-2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cognifyz Full Stack Development Task 2 - validation and temporary server storage",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  }
+}

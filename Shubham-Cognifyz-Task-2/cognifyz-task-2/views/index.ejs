@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Feedback desk · Shubham</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/">shubham<span>/desk</span></a>
+      <a class="archive-link" href="/submissions">View inbox <span>→</span></a>
+    </header>
+    <main class="layout">
+      <section class="welcome">
+        <p class="kicker">Cognifyz · Task 2</p>
+        <h1>Make the next version a little better.</h1>
+        <p class="muted">A tiny feedback desk with client-side hints, server-side validation, and temporary in-memory storage.</p>
+        <div class="rule"></div>
+        <p class="microcopy"><strong>Note:</strong> entries live only while this Node process is running.</p>
+      </section>
+      <section class="form-card">
+        <% if (Object.keys(errors).length) { %>
+          <div class="notice notice-error" role="alert">Please fix the highlighted fields and try again.</div>
+        <% } %>
+        <% if (new URLSearchParams(typeof location !== 'undefined' ? location.search : '').get('saved')) { %>
+          <div class="notice notice-good">Thanks — your feedback is in the inbox.</div>
+        <% } %>
+        <form action="/submit" method="post" onsubmit="return checkForm()">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" value="<%= formData.name || '' %>" placeholder="e.g. Aisha Khan" />
+            <% if (errors.name) { %><small class="field-error"><%= errors.name %></small><% } %>
+          </div>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" value="<%= formData.email || '' %>" placeholder="aisha@example.com" />
+            <% if (errors.email) { %><small class="field-error"><%= errors.email %></small><% } %>
+          </div>
+          <div class="field">
+            <label for="topic">What is this about?</label>
+            <select id="topic" name="topic">
+              <option value="">Select a topic</option>
+              <option value="Product idea" <%= formData.topic === "Product idea" ? "selected" : "" %>>Product idea</option>
+              <option value="Bug report" <%= formData.topic === "Bug report" ? "selected" : "" %>>Bug report</option>
+              <option value="A nice note" <%= formData.topic === "A nice note" ? "selected" : "" %>>A nice note</option>
+            </select>
+            <% if (errors.topic) { %><small class="field-error"><%= errors.topic %></small><% } %>
+          </div>
+          <div class="field">
+            <div class="label-row"><label for="message">Your message</label><span id="count">0 / 240</span></div>
+            <textarea id="message" name="message" maxlength="240" rows="5" placeholder="What should Shubham know?"><%= formData.message || '' %></textarea>
+            <% if (errors.message) { %><small class="field-error"><%= errors.message %></small><% } %>
+          </div>
+          <button type="submit">Send feedback <span>↗</span></button>
+        </form>
+      </section>
+    </main>
+    <script>
+      const message = document.querySelector("#message");
+      const count = document.querySelector("#count");
+      function updateCount() { count.textContent = `${message.value.length} / 240`; }
+      function checkForm() {
+        if (message.value.trim().length < 12) {
+          message.focus();
+          return false;
+        }
+        return true;
+      }
+      message.addEventListener("input", updateCount);
+      updateCount();
+    </script>
+  </body>
+</html>

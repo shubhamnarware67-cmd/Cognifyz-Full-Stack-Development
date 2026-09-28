@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inbox · Shubham</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar"><a class="brand" href="/">shubham<span>/desk</span></a><a class="archive-link" href="/">New message <span>→</span></a></header>
+    <main class="inbox">
+      <p class="kicker">Temporary inbox</p>
+      <h1>Recent feedback</h1>
+      <% if (!submissions.length) { %>
+        <div class="empty">Nothing here yet. The first note will appear after submitting the form.</div>
+      <% } %>
+      <div class="message-list">
+        <% submissions.forEach((item) => { %>
+          <article class="message">
+            <div class="message-meta"><strong><%= item.name %></strong><span><%= item.topic %> · <%= item.receivedAt %></span></div>
+            <p><%= item.message %></p>
+            <small><%= item.email %></small>
+          </article>
+        <% }) %>
+      </div>
+    </main>
+  </body>
+</html>
