@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Account lab · Shubham</title><link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header><a class="logo" href="#signup">shubham<span>+</span></a><nav><a href="#signup">Join</a><a href="#about">About</a></nav></header>
+    <main>
+      <section class="screen" data-route="signup">
+        <div class="copy"><p class="eyebrow">Cognifyz · Task 4</p><h1>A little more <i>you</i> in every detail.</h1><p class="muted">Create a profile for a calmer, more personal workspace.</p><div class="progress"><span></span></div><p class="step-label">Step 1 of 1 · Your details</p></div>
+        <div class="signup-card">
+          <div id="formNotice" class="notice" hidden></div>
+          <form id="signupForm" novalidate>
+            <label for="fullName">Full name</label><input id="fullName" name="fullName" placeholder="Shubham Sharma" autocomplete="name" /><small class="error" data-error-for="fullName"></small>
+            <label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" /><small class="error" data-error-for="email"></small>
+            <label for="password">Create a password</label><div class="password-wrap"><input id="password" name="password" type="password" placeholder="At least 8 characters" autocomplete="new-password" /><button type="button" id="togglePassword">Show</button></div><div id="strength" class="strength"><span></span><span></span><span></span><span></span></div><p id="strengthText" class="hint">Use a mix of letters, numbers, and a symbol.</p><small class="error" data-error-for="password"></small>
+            <label for="confirmPassword">Confirm password</label><input id="confirmPassword" name="confirmPassword" type="password" placeholder="Type it again" /><small class="error" data-error-for="confirmPassword"></small>
+            <label class="check"><input id="terms" name="terms" type="checkbox" /><span>I agree to the simple terms of this demo.</span></label><small class="error" data-error-for="terms"></small>
+            <button class="submit" type="submit">Create my profile <span>→</span></button>
+          </form>
+          <div id="successView" hidden><div class="tick">✓</div><h2>You're on the list.</h2><p class="muted">Your profile preview is ready. This demo keeps everything in your browser.</p><button id="reset" class="text-button">Start over ↺</button></div>
+        </div>
+      </section>
+      <section class="screen about-screen" data-route="about" hidden><div class="about-box"><p class="eyebrow">About this demo</p><h1>Good forms do a bit of thinking with you.</h1><p class="muted">This page demonstrates password-strength rules, inline validation, a dynamic preview, and hash-based client-side routing without a full page reload.</p><a class="back-link" href="#signup">← Back to the form</a></div></section>
+    </main>
+    <footer><span>Owner: Shubham</span><span>Client-side routing · DOM practice</span></footer>
+    <script src="/app.js"></script>
+  </body>
+</html>
