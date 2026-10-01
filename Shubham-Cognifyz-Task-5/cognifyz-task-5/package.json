@@ -1,0 +1,9 @@
+{
+  "name": "shubhams-api-notebook-task-5",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cognifyz Full Stack Development Task 5 - REST CRUD API and front-end interaction",
+  "main": "server.js",
+  "scripts": { "start": "node server.js", "dev": "node --watch server.js" },
+  "dependencies": { "express": "^4.21.2" }
+}
