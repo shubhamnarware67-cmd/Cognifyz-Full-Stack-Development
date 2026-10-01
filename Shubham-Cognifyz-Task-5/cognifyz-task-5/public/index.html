@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>API Notebook · Shubham</title><link rel="stylesheet" href="/style.css"/></head>
+  <body>
+    <header><a class="brand" href="/">shubham<span>/notes</span></a><span class="api-pill">REST API · online</span></header>
+    <main>
+      <section class="hero"><p class="eyebrow">Cognifyz · Task 5</p><h1>Keep the good<br/><em>thoughts</em> close.</h1><p class="intro">A small notebook where the interface talks to a RESTful API for every create, update, and delete.</p></section>
+      <section class="workspace">
+        <div class="toolbar"><div><p class="eyebrow">Your notebook</p><h2 id="noteCount">Loading notes...</h2></div><button id="newNote" class="dark-button">+ New note</button></div>
+        <div id="notes" class="notes-grid"></div>
+        <div id="empty" class="empty" hidden>No notes yet. Add the first one above.</div>
+      </section>
+      <dialog id="noteDialog"><form method="dialog" id="noteForm"><div class="dialog-head"><h2 id="dialogTitle">New note</h2><button type="button" class="close" id="closeDialog">×</button></div><input type="hidden" id="noteId"/><label for="title">Title</label><input id="title" maxlength="60" required placeholder="A thought worth keeping"/><label for="body">Note</label><textarea id="body" rows="5" required placeholder="Write it down..."></textarea><label for="tag">Tag</label><select id="tag"><option value="idea">Idea</option><option value="reminder">Reminder</option><option value="quote">Quote</option></select><div id="dialogError" class="dialog-error"></div><button class="dark-button" type="submit">Save note <span>→</span></button></form></dialog>
+    </main>
+    <footer><span>Owner: Shubham</span><span>Data resets when the server restarts</span></footer>
+    <script src="/app.js"></script>
+  </body>
+</html>
