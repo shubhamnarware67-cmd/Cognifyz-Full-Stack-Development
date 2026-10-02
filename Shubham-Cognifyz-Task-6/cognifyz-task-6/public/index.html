@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Private workspace · Shubham</title><link rel="stylesheet" href="/style.css"/></head>
+  <body>
+    <header><a class="logo" href="/">shubham<span>°</span></a><span class="secure"><i></i> private workspace</span></header>
+    <main>
+      <section id="authScreen" class="auth-screen">
+        <div class="auth-copy"><p class="eyebrow">Cognifyz · Task 6</p><h1>The work is yours.<br/><em>Keep it that way.</em></h1><p class="muted">A small protected workspace with SQLite storage, hashed passwords, JWT sessions, and user-owned tasks.</p></div>
+        <div class="auth-card">
+          <div class="tabs"><button class="tab active" data-mode="login">Log in</button><button class="tab" data-mode="register">Create account</button></div>
+          <div id="authNotice" class="notice" hidden></div>
+          <form id="authForm">
+            <div id="nameField" hidden><label for="name">Your name</label><input id="name" autocomplete="name" placeholder="Shubham Sharma"/></div>
+            <label for="email">Email</label><input id="email" type="email" required autocomplete="email" placeholder="you@example.com"/>
+            <label for="password">Password</label><input id="password" type="password" required autocomplete="current-password" placeholder="8+ characters"/>
+            <button class="primary" type="submit"><span id="authAction">Log in</span><span>→</span></button>
+          </form>
+          <p class="auth-foot">Demo app · never use the included local secret in production.</p>
+        </div>
+      </section>
+      <section id="appScreen" hidden>
+        <div class="app-head"><div><p class="eyebrow">Your workspace</p><h1>Hello, <span id="userName"></span>.</h1></div><button id="logout" class="link-button">Log out</button></div>
+        <div class="task-box"><form id="taskForm"><input id="taskTitle" required placeholder="Add a task for today..." /><button class="primary" type="submit">Add task <span>+</span></button></form><div id="taskList" class="task-list"></div><div id="taskEmpty" class="empty">No tasks yet. A clean slate can be useful.</div></div>
+        <p class="security-note">🔒 Your task requests are authorized with a signed JWT and filtered by your user ID.</p>
+      </section>
+    </main>
+    <footer><span>Owner: Shubham</span><span>SQLite · bcrypt · JWT</span></footer>
+    <script src="/app.js"></script>
+  </body>
+</html>
