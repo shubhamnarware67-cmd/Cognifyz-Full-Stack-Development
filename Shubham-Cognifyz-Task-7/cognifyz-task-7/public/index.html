@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Weather desk · Shubham</title><link rel="stylesheet" href="/style.css"/></head>
+  <body>
+    <header><a class="brand" href="/">weather<span>/desk</span></a><span class="provider">powered by Open-Meteo</span></header>
+    <main>
+      <section class="hero"><p class="eyebrow">Cognifyz · Task 7</p><h1>Look outside,<br/><em>from anywhere.</em></h1><p class="muted">A small server-side integration with a third-party weather API, with graceful errors, caching, and rate limiting built in.</p><form id="searchForm"><input id="city" placeholder="Try Mumbai, London, or Tokyo" autocomplete="off" required/><button>Check weather <span>→</span></button></form><p id="formHint" class="hint"></p></section>
+      <section id="result" class="weather-card" hidden><div class="weather-top"><div><p class="eyebrow">Current conditions</p><h2 id="place"></h2><p id="time" class="muted"></p></div><span id="cacheBadge" class="cache-badge"></span></div><div class="temperature"><span id="temperature"></span><sup>°C</sup></div><div class="metrics"><div><small>Humidity</small><strong id="humidity"></strong></div><div><small>Wind</small><strong id="wind"></strong></div><div><small>Coordinates</small><strong id="coordinates"></strong></div></div></section>
+      <section id="error" class="error-card" hidden></section>
+      <section class="notes"><div><strong>OAuth note</strong><p>This demo uses a public provider, so OAuth credentials are not required. The integration boundary is server-side and ready for a provider that requires an OAuth bearer token.</p></div><div><strong>Good API manners</strong><p>Requests are limited per IP, successful results are cached for five minutes, and provider failures return a useful 502 response.</p></div></section>
+    </main>
+    <footer><span>Owner: Shubham</span><span>External API integration · resilient by default</span></footer>
+    <script src="/app.js"></script>
+  </body>
+</html>

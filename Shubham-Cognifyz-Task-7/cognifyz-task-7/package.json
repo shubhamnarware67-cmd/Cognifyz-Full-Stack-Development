@@ -1,0 +1,9 @@
+{
+  "name": "shubhams-weather-desk-task-7",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cognifyz Full Stack Development Task 7 - external API, rate limiting, caching, and errors",
+  "main": "server.js",
+  "scripts": { "start": "node server.js", "dev": "node --watch server.js" },
+  "dependencies": { "express": "^4.21.2" }
+}
