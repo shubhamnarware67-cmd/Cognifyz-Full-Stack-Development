@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Operations room · Shubham</title><link rel="stylesheet" href="/style.css"/></head>
+  <body>
+    <header><a class="brand" href="/">shubham<span>/ops</span></a><span class="live"><i></i> worker online</span></header>
+    <main>
+      <section class="hero"><div><p class="eyebrow">Cognifyz · Task 8</p><h1>The boring work<br/><em>can run itself.</em></h1><p class="muted">A small operations room for queued jobs, request middleware, and fast server-side cache reads.</p></div><div class="status-card"><p class="eyebrow">System status</p><div class="status-row"><span>Worker</span><strong id="worker">checking...</strong></div><div class="status-row"><span>Queue</span><strong id="queued">—</strong></div><div class="status-row"><span>Cache entries</span><strong id="cache">—</strong></div></div></section>
+      <section class="workspace"><div class="section-head"><div><p class="eyebrow">Background jobs</p><h2>Recent activity</h2></div><button id="openJob">+ Queue a job</button></div><div id="jobs" class="jobs"></div><div id="empty" class="empty">No jobs yet. Queue a small one to see the worker in action.</div></section>
+      <section class="explain"><div><strong>01 · Middleware</strong><p>Every request gets a timestamped method, path, status, and duration log.</p></div><div><strong>02 · Queue</strong><p>A lightweight worker processes jobs outside the request response and reports status.</p></div><div><strong>03 · Cache</strong><p>Stats are cached for 30 seconds and expired entries are cleaned before reads.</p></div></section>
+      <dialog id="jobDialog"><form id="jobForm" method="dialog"><div class="dialog-head"><h2>Queue a job</h2><button id="close" type="button">×</button></div><label for="type">Job type</label><select id="type"><option value="digest">Prepare digest</option><option value="reminder">Send reminder</option><option value="export">Build export</option></select><label for="recipient">For</label><input id="recipient" value="the team"/><label for="message">What should it do?</label><textarea id="message" rows="4" required placeholder="A short description..."></textarea><div id="error" class="error"></div><button class="submit" type="submit">Add to queue <span>→</span></button></form></dialog>
+    </main>
+    <footer><span>Owner: Shubham</span><span>Express middleware · queue · cache</span></footer>
+    <script src="/app.js"></script>
+  </body>
+</html>
